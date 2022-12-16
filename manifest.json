@@ -1,12 +1,15 @@
 {
-    "manifest_version": 2,
-    "name": "ViewCleaner",
+    "manifest_version": 3,
+    "name": "WindowCleaner",
     "version": "0.1.0",
-    "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+    "permissions": ["declarativeNetRequest"],
+    "background": {
+        "service_worker": "adblock.js"
+    },
     "content_scripts": [
         {
             "matches":["<all_urls>"],
-            "js":["miniscript.js", "adblock.js"],
+            "js":["miniscript.js"],
             "run_at": "document_start"
         }
     ]
